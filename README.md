@@ -74,7 +74,7 @@ Any other OpenTelemetry exporter can send OTLP/HTTP (protobuf or JSON) to `https
 
 **Full-text search is off.** Upstream's compose includes Quickwit for searching span inputs and outputs, but the v0.3.0 dashboard image doesn't ship the index definitions it needs to create the search index, so search stays empty even there. This template leaves Quickwit out (`QUICKWIT_ENABLED=false`) and saves the memory. Filters, SQL and everything else work. It will come back once upstream's image creates the index.
 
-**Resources.** ClickHouse alone uses about 1.3 GB of RAM on Railway even when idle; the dashboard, app server, Postgres and gateway add roughly 300 MB together. Plan for about 1.7 GB, so the Hobby plan or higher. Back up the ClickHouse and Postgres volumes; ClickHouse holds every span.
+**Resources.** Measured on Railway after first boot and some use, the idle stack sits at about 1.8 GB of RAM: ClickHouse about 1.1 GB, the dashboard about 300 MB, the app server about 210 MB, Postgres about 150 MB and the gateway under 20 MB. That needs the Hobby plan or higher. Back up the ClickHouse and Postgres volumes; ClickHouse holds every span.
 
 ## Why Deploy Laminar on Railway?
 
