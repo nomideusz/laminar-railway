@@ -332,6 +332,11 @@
           "defaultValue": "30",
           "description": "Time for ClickHouse to flush and shut down cleanly on redeploy",
           "isOptional": false
+        },
+        "MALLOC_CONF": {
+          "defaultValue": "thp:never",
+          "description": "Keeps jemalloc off transparent huge pages; without it idle ClickHouse memory creeps up on Railway",
+          "isOptional": false
         }
       }
     }
